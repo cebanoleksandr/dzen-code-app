@@ -6,4 +6,9 @@ In the header of the site there is a search engine with which you can find the d
 
 On the contact page you can find all the information about the developer of this site.
 
-You can see the website on https://cebanoleksandr.github.io/dzen-code-app/ Also you can watch the demo video https://youtu.be/SsANkCUZx1k?si=eZWu-6I81is-vVV1
+You can see the website on `https://cebanoleksandr.github.io/dzen-code-app/` Also you can watch the demo video `https://youtu.be/SsANkCUZx1k?si=eZWu-6I81is-vVV1`
+
+To login you can use:
+ - email - `alex@gmail.com`
+ - password - `test1234`
+Or register a new account

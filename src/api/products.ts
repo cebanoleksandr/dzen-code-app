@@ -69,6 +69,8 @@ export const fetchProducts = async ({ orderId, query }:{ orderId?: string, query
     url = '/';
   }
 
+  console.log('URL: ', url)
+
   return await api.get(url);
 }
 

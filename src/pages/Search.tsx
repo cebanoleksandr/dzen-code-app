@@ -9,19 +9,19 @@ import { fetchOrders } from "../api/orders";
 import { setOrdersAC } from "../store/ordersSlice";
 import { setAlertAC } from "../store/alertSlice";
 import { fetchProducts } from "../api/products";
-import { setProductsAC } from "../store/productsSlice";
 import { fetchUsers } from "../api/users";
 import { setUsersAC } from "../store/usersSlice";
 import OrdersList from "../components/business/orders/OrdersList";
 import ProductsList from "../components/business/products/ProductList";
 import UsersTable from "../components/business/users/UsersTable";
+import type { Product } from "../utils/types";
 
 const Search = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
 
   const { item: search } = useAppSelector(state => state.search);
   const { items: orders } = useAppSelector(state => state.orders);
-  const { items: products } = useAppSelector(state => state.products);
   const { items: users } = useAppSelector(state => state.users);
 
   const dispatch = useAppDispatch();
@@ -34,7 +34,7 @@ const Search = () => {
 
   const getProducts = async () => {
     const response = await fetchProducts({ query: search });
-    dispatch(setProductsAC(response.data));
+    setProducts(response.data);
   };
 
   const getUsers = async () => {
