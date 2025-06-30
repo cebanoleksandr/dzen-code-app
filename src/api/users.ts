@@ -2,15 +2,25 @@ import axios from 'axios';
 
 export type UpdateUserDTO = { firstName?: string, lastName?: string, userId: string, photoUrl?: string }
 
-const token = localStorage.getItem('accessToken');
-
 const api = axios.create({
   baseURL: 'https://dzen-code-app-be.vercel.app/users',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
   }
 });
+
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export const fetchUsers = async ({ query }:{ query?: string }) => {
   let url = '';

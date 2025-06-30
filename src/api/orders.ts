@@ -3,15 +3,25 @@ import axios from 'axios';
 export type CreateOrderDTO = { title: string, description: string, authorId: string };
 export type UpdateOrderDTO = { title?: string, description?: string, orderId: string };
 
-const token = localStorage.getItem('accessToken');
-
 const api = axios.create({
   baseURL: 'https://dzen-code-app-be.vercel.app/orders',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
   }
 });
+
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export const fetchOrders = async ({ query }:{ query?: string }) => {
   let url = '';

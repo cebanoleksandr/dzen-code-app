@@ -29,15 +29,25 @@ export type UpdateProductDTO = {
   order: number;
 }
 
-const token = localStorage.getItem('accessToken');
-
 const api = axios.create({
   baseURL: 'https://dzen-code-app-be.vercel.app/products',
   headers: {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
   }
 });
+
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 export const fetchProducts = async ({ orderId, query }:{ orderId?: string, query?: string }) => {
   let url = '';

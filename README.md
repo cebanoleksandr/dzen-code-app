@@ -1,54 +1,9 @@
-# React + TypeScript + Vite
+In this application we have four pages: orders page, products page, users page and settings page. On the orders page a list of all orders is displayed. On each order card there is the name of the order, the number of products in this order, the date and total cost of all products in this order, as well as a delete button. There is an opportunity to see the details.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The product page also benefits from a card-style list of products, where there is the name of the product, its status, date, price and the ability to delete.
 
-Currently, two official plugins are available:
+In the header of the site there is a search engine with which you can find the desired order or the desired product. You can also see the current date and time in the site header.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+On the contact page you can find all the information about the developer of this site.
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+You can see the website on https://cebanoleksandr.github.io/dzen-code-app/ Also you can watch the demo video https://youtu.be/SsANkCUZx1k?si=eZWu-6I81is-vVV1
